@@ -76,7 +76,7 @@
 
 			socket.on('updateUsers', function (data) {
 				$('#users').empty()
-				$.each(data, function (username) {
+				$.each(data, function (_, username) {
 					$('#users').append(
 						`<div class="flex items-center gap-4">${rendUsrImg(
 							username
@@ -86,7 +86,7 @@
 			})
 
 			socket.on('serverNotification', function (data) {
-				if (data.to_self) data.username = 'you'
+				if (data.toSelf) data.username = 'you'
 				$('#conversation').append(
 					`${data.connected ? '' : 'dis'}connected: <strong>${
 						data.username
@@ -99,7 +99,7 @@
 					if (e.which != 13) return
 
 					const message = $('#message-input').val()
-					socket.emit('sendchat', message)
+					socket.emit('sendChat', message)
 					$('#message-input').val('')
 				})
 			})
