@@ -22,7 +22,7 @@ io.sockets.on('connection', function (socket) {
 		io.sockets.emit('updateChat', socket.username, data)
 	})
 
-	socket.on('adduser', function (username) {
+	socket.on('addUser', function (username) {
 		socket.username = username
 
 		usernames[username] = username

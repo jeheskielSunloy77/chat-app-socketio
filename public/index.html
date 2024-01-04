@@ -59,7 +59,7 @@
 			}
 
 			socket.on('connect', function () {
-				socket.emit('adduser', name)
+				socket.emit('addUser', name)
 			})
 
 			socket.on('updateChat', function (username, data) {
